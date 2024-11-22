@@ -15,7 +15,4 @@ resource "flux_bootstrap_git" "repository" {
   depends_on         = [github_repository.flux_repo]
   embedded_manifests = true
   path               = "clusters/"
-  lifecycle {
-    prevent_destroy = true
-  }
 }
