@@ -20,3 +20,9 @@ variable "github_repository_visibility" {
   type        = string
   default     = "private"
 }
+
+variable "github_token" {
+  description = "GitHub PAT"
+  type        = string
+  default     = ""
+}
