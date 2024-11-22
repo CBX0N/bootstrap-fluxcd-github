@@ -1,31 +1,12 @@
 terraform {
   required_providers {
-    onepassword = {
-      source = "1Password/onepassword"
-    }
     flux = {
-      source = "fluxcd/flux"
+      source  = "fluxcd/flux"
+      version = "1.4.0"
     }
     github = {
-      source = "integrations/github"
+      source  = "integrations/github"
+      version = "6.4.0"
     }
   }
-}
-
-provider "flux" {
-  kubernetes = {
-    config_path = local_file.kubeconfig.filename
-  }
-  git = {
-    url = "https://github.com/${var.github_org}/${var.github_repository}.git"
-    http = {
-      username = "git"
-      password = var.github_token
-    }
-  }
-}
-
-provider "github" {
-  owner = var.github_org
-  token = var.github_token
 }
